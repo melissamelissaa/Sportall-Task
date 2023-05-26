@@ -1,4 +1,5 @@
 import Swal from "sweetalert2";
+import { v4 as uuid } from "uuid";
 
 export type resultType = {
   image: string;
@@ -17,7 +18,7 @@ export const SearchResult = (props: searchResultProps) => {
   let html = '<ul class="details-list">';
 
   for (let i = 0; i < props.result.ingredientLines.length; i++) {
-    html += `<li class="details-list-item" key=${Math.random() * 1000000}>${
+    html += `<li class="details-list-item" key=${uuid()}>${
       props.result.ingredientLines[i]
     }</li>\n`;
   }

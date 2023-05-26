@@ -3,6 +3,8 @@
 import { useState, useEffect } from "react";
 import { SearchResult } from "./Components/SearchResult";
 
+import { v4 as uuid } from "uuid";
+
 const emptyArray: any[] = [];
 
 export default function Home() {
@@ -69,7 +71,7 @@ export default function Home() {
       </div>
       <div className="home-searchDiv-foodDiv">
         {result.map((r: any) => (
-          <SearchResult key={Math.random() * 1000000} result={r.recipe} />
+          <SearchResult key={uuid()} result={r.recipe} />
         ))}
         {result.length === 0 && isClicked ? <h1>Could not find</h1> : null}
         {loading ? <h1>Loading...</h1> : null}
