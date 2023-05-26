@@ -50,16 +50,19 @@ export default function Home() {
   };
 
   return (
-    <div>
-      <div>
+    <div className="home">
+      <div className="home-searchDiv">
         <input
+          className="home-searchDiv-input"
           type="text"
           placeholder="Search recipes by keywords or ingredients"
           onChange={(e) => {
             setInput(e.target.value);
           }}
         />
-        <button onClick={callAPI}>Search</button>
+        <button className="home-searchDiv-btn" onClick={callAPI}>
+          Search
+        </button>
 
         {result.map((r: any) => (
           <SearchResult key={Math.random() * 1000000} result={r.recipe} />
