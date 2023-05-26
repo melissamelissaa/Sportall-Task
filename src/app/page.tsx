@@ -14,7 +14,9 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
 
   const SearchURL = `https://api.edamam.com/search?q=${input}&app_id=5d798d52&app_key=b5776ee934123ae321b5176b622c3c9a&from=${from}&to=${to}`;
+
   const handleScroller = () => {
+    // with this i determine wheter if user has scrolled to the bottom of the page
     if (
       window.innerHeight + +document.documentElement.scrollTop + 1 >=
       document.documentElement.scrollHeight
@@ -36,17 +38,18 @@ export default function Home() {
       .then((data) => {
         setResult((prev) => [...prev, ...data.hits]);
         setLoading(false);
-      });
+      })
+      .catch((err) => console.log(err));
   }, [from, to]);
 
   const callAPI = () => {
     fetch(SearchURL)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data.hits);
         setResult(data.hits);
         setIsClicked(true);
-      });
+      })
+      .catch((err) => console.log(err));
   };
 
   return (
@@ -63,13 +66,14 @@ export default function Home() {
         <button className="home-searchDiv-btn" onClick={callAPI}>
           Search
         </button>
-
+      </div>
+      <div className="home-searchDiv-foodDiv">
         {result.map((r: any) => (
           <SearchResult key={Math.random() * 1000000} result={r.recipe} />
         ))}
         {result.length === 0 && isClicked ? <h1>Could not find</h1> : null}
+        {loading ? <h1>Loading...</h1> : null}
       </div>
-      {loading ? <h1>Loading...</h1> : null}
     </div>
   );
 }

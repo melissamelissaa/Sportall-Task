@@ -1,0 +1,117 @@
+@import url("https://fonts.googleapis.com/css2?family=Merriweather+Sans&display=swap");
+
+:root {
+  --background-color: #f0ece2;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Merriweather Sans", sans-serif;
+  background-color: var(--background-color);
+}
+
+.home {
+  color: rgb(48, 48, 48);
+  background-color: var(--background-color);
+}
+
+.home-searchDiv,
+.home-searchDiv-foodDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-searchDiv-input {
+  margin: 1rem;
+  width: 70vw;
+}
+
+.home-searchDiv-foodDiv {
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.searchResult {
+  font-size: 12px;
+  width: 50vw;
+  background-color: #dfd3c3;
+  padding: 1rem;
+  border: 1px solid #c7b198;
+  box-shadow: 7px 6px 24px 0px rgba(199, 177, 152, 0.97);
+  border-radius: 6px;
+}
+
+.searchResult-img {
+  width: 50vw;
+}
+
+.home-searchDiv-input {
+  height: 1.5rem;
+}
+
+.home-searchDiv-btn {
+  height: 1.8rem;
+}
+
+.details-list-item {
+  text-align: left;
+}
+.swal2-title,
+.details-list,
+.swal2-close {
+  color: black !important;
+}
+a {
+  text-decoration: none;
+  color: white;
+}
+
+.swal2-popup,
+.swal2-modal,
+.swal2-show {
+  background-color: #cbbcab !important;
+}
+
+@media (min-width: 1100px) {
+  .home-searchDiv-foodDiv {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .searchResult,
+  .searchResult-img {
+    width: 15vw;
+  }
+
+  .searchResult {
+    min-height: 56vh;
+  }
+
+  .home-searchDiv-input {
+    width: 40vw;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 1100px) {
+  .home-searchDiv-foodDiv {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .searchResult,
+  .searchResult-img {
+    width: 25vw;
+  }
+
+  .searchResult {
+    min-height: 50vh;
+  }
+
+  .home-searchDiv-input {
+    width: 40vw;
+  }
+}
