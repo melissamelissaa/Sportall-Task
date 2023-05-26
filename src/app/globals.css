@@ -44,6 +44,10 @@ body {
   box-shadow: 7px 6px 24px 0px rgba(199, 177, 152, 0.97);
   border-radius: 6px;
 }
+.searchResult:hover,
+.home-searchDiv-btn {
+  cursor: pointer;
+}
 
 .searchResult-img {
   width: 50vw;
