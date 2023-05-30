@@ -20,7 +20,7 @@ export default function Home() {
   const handleScroller = () => {
     // with this i determine wheter if user has scrolled to the bottom of the page
     if (
-      window.innerHeight + +document.documentElement.scrollTop + 1 >=
+      window.innerHeight + document.documentElement.scrollTop + 1 >=
       document.documentElement.scrollHeight
     ) {
       setLoading(true);
@@ -30,6 +30,7 @@ export default function Home() {
   };
 
   useEffect(() => {
+    //Handler which gives new fetchs new data on scroll
     window.addEventListener("scroll", handleScroller);
     return () => window.removeEventListener("scroll", handleScroller);
   }, []);
@@ -70,9 +71,15 @@ export default function Home() {
         </button>
       </div>
       <div className="home-searchDiv-foodDiv">
+        
+        {/* each object of array data renders as searchResult component */}
+
         {result.map((r: any) => (
           <SearchResult key={uuid()} result={r.recipe} />
         ))}
+
+        {/* if there is no data of inputed string, output "Could not find" */}
+
         {result.length === 0 && isClicked ? <h1>Could not find</h1> : null}
         {loading ? <h1>Loading...</h1> : null}
       </div>

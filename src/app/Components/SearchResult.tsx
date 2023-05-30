@@ -14,6 +14,9 @@ type searchResultProps = {
   result: resultType;
 };
 
+
+// Create html variable and set value lists
+
 export const SearchResult = (props: searchResultProps) => {
   let html = '<ul class="details-list">';
 
